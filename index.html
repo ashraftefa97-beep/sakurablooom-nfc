@@ -6,18 +6,17 @@
 <meta name="theme-color" content="#fff9fa">
 <title>SakuraBlooom</title>
 <style>
-:root{--pink:#dda0aa;--pink2:#f6d8de;--mint:#76b9b6;--ink:#5f5a5c;--paper:#fffafa}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);
-background:linear-gradient(180deg,#fff 0%,#fff9fa 48%,#fdeff2 100%);min-height:100vh}
-.wrap{width:min(92%,720px);margin:auto;padding:34px 0 42px}
-.hero{text-align:center;padding:10px 0 22px}
-.logo{display:block;width:min(48vw,230px);max-height:210px;object-fit:contain;margin:0 auto 12px}
+:root{--pink:#dda0aa;--pink2:#f6d8de;--mint:#76b9b6;--ink:#5f5a5c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff 0%,#fff9fa 48%,#fdeff2 100%);min-height:100vh}
+.wrap{width:min(92%,720px);margin:auto;padding:28px 0 42px}
+.hero{text-align:center;padding:4px 0 22px}
+.logo{display:block;width:min(70vw,320px);height:auto;object-fit:contain;margin:0 auto 15px}
 .brand{font-size:clamp(28px,8vw,44px);font-weight:750;letter-spacing:-1.6px;margin:0}
 .brand .sakura{color:var(--mint)} .brand .bloom{color:var(--pink);font-weight:400}
 .tagline{margin:9px auto 0;font-size:15px;color:#8c8588}
-.card{background:rgba(255,255,255,.88);border:1px solid rgba(221,160,170,.22);
-border-radius:25px;box-shadow:0 12px 36px rgba(202,145,157,.13);padding:12px;margin:0 0 18px}
+.card{background:rgba(255,255,255,.9);border:1px solid rgba(221,160,170,.22);border-radius:25px;box-shadow:0 12px 36px rgba(202,145,157,.13);padding:12px;margin-bottom:18px}
 .video{width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9}
 .playhint{text-align:center;margin:13px 0 5px;font-size:14px;color:#9a858a}
 .section{padding:24px 4px 4px;text-align:center}
@@ -29,15 +28,20 @@ p{line-height:1.65;margin:0 auto;max-width:580px}
 .step b{display:block;color:var(--mint);font-size:21px;margin-bottom:5px}
 .details{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
 .pill{padding:9px 13px;border-radius:999px;background:#fff;border:1px solid #f0d8de;font-size:13px}
-.actions{display:grid;gap:10px;margin-top:17px}
-.btn{text-decoration:none;border-radius:16px;padding:14px 18px;font-weight:750;display:block}
-.primary{background:var(--pink);color:white}.secondary{background:#e8f5f3;color:#4f918f}
+.socials{display:flex;justify-content:center;gap:18px;margin-top:20px}
+.social{width:62px;height:62px;border-radius:20px;background:#fff;display:grid;place-items:center;text-decoration:none;box-shadow:0 9px 26px rgba(202,145,157,.14);border:1px solid #f0d8de;transition:.2s}
+.social:active{transform:scale(.96)}
+.social svg{width:31px;height:31px}
+.instagram svg{fill:#d990a0}
+.whatsapp svg{fill:#76b9b6}
+.social-labels{display:flex;justify-content:center;gap:18px;margin-top:7px;font-size:11px}
+.social-labels span{width:62px;text-align:center}
 footer{text-align:center;padding:35px 0 10px;color:#a6969b;font-size:12px}
 .mark{font-size:24px;color:var(--pink);margin-bottom:7px}
 .petal{position:fixed;width:13px;height:8px;background:#f4cbd3;border-radius:100% 0 100% 0;opacity:.45;z-index:-1;animation:fall 11s linear infinite}
-.p1{left:8%;top:-5%;animation-delay:0s}.p2{left:76%;top:-8%;animation-delay:3s}.p3{left:42%;top:-10%;animation-delay:6s}
+.p1{left:8%;top:-5%}.p2{left:76%;top:-8%;animation-delay:3s}.p3{left:42%;top:-10%;animation-delay:6s}
 @keyframes fall{to{transform:translate(40px,115vh) rotate(420deg)}}
-@media(max-width:420px){.wrap{width:94%;padding-top:24px}.logo{width:170px}.steps{gap:6px}.step{font-size:12px;padding:13px 4px}}
+@media(max-width:420px){.wrap{width:94%;padding-top:20px}.logo{width:min(76vw,300px)}.steps{gap:6px}.step{font-size:12px;padding:13px 4px}}
 @media(prefers-reduced-motion:reduce){.petal{display:none}}
 </style>
 </head>
@@ -45,44 +49,61 @@ footer{text-align:center;padding:35px 0 10px;color:#a6969b;font-size:12px}
 <i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i>
 <main class="wrap">
 <section class="hero">
-<img class="logo" src="logo.png" alt="SakuraBlooom logo">
-<h1 class="brand"><span class="sakura">SAKURA</span><span class="bloom">Blooom</span></h1>
-<p class="tagline">A little piece of anime, made for you. 🌸</p>
+  <img class="logo" src="IMG_0279.png" alt="SakuraBlooom logo">
+  <h1 class="brand"><span class="sakura">SAKURA</span><span class="bloom">Blooom</span></h1>
+  <p class="tagline">A little piece of anime, made for you. 🌸</p>
 </section>
 
 <div class="card">
-<video class="video" controls playsinline preload="metadata"><source src="video.mp4" type="video/mp4"></video>
-<div class="playhint">Tap to unlock your moment ✨</div>
+  <video class="video" controls playsinline preload="metadata">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <div class="playhint">Tap to unlock your moment ✨</div>
 </div>
 
 <section class="section">
-<div class="kicker">Your SakuraBlooom Piece</div>
-<h2>Made to come alive.</h2>
-<p>Made with care, printed layer by layer, and brought to life with NFC.</p>
-<div class="steps">
-<div class="step"><b>01</b>Tap</div><div class="step"><b>02</b>Discover</div><div class="step"><b>03</b>Enjoy</div>
-</div>
+  <div class="kicker">Your SakuraBlooom Piece</div>
+  <h2>Made to come alive.</h2>
+  <p>Made with care, printed layer by layer, and brought to life with NFC.</p>
+  <div class="steps">
+    <div class="step"><b>01</b>Tap</div>
+    <div class="step"><b>02</b>Discover</div>
+    <div class="step"><b>03</b>Enjoy</div>
+  </div>
 </section>
 
 <section class="section">
-<div class="kicker">Product details</div>
-<h2>A physical piece. A digital moment.</h2>
-<div class="details">
-<span class="pill">3D Printed</span><span class="pill">NFC Enabled</span><span class="pill">SakuraBlooom Design</span>
-</div>
+  <div class="kicker">Product details</div>
+  <h2>A physical piece. A digital moment.</h2>
+  <div class="details">
+    <span class="pill">3D Printed</span>
+    <span class="pill">NFC Enabled</span>
+    <span class="pill">SakuraBlooom Design</span>
+  </div>
 </section>
 
 <section class="section">
-<div class="kicker">Stay connected</div>
-<h2>Welcome to SakuraBlooom 🌸</h2>
-<p>More characters, more moments, and more pieces are waiting to bloom.</p>
-<div class="actions">
-<a class="btn primary" href="https://www.instagram.com/sakurabloom_3d?stkn=bTlyeGVhMmx5ampn&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">Follow us on Instagram</a>
-<a class="btn secondary" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank" rel="noopener" aria-label="Contact SakuraBlooom">Contact SakuraBlooom</a>
-</div>
+  <div class="kicker">Stay connected</div>
+  <h2>Follow SakuraBlooom 🌸</h2>
+  <p>More characters, more moments, and more pieces are waiting to bloom.</p>
+
+  <div class="socials">
+    <a class="social instagram" href="https://www.instagram.com/sakurabloom_3d?stkn=bTlyeGVhMmx5ampn&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.75 6.25a1.05 1.05 0 1 1-1.05 1.05 1.05 1.05 0 0 1 1.05-1.05z"/></svg>
+    </a>
+    <a class="social whatsapp" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.3 23.5l5.9-1.6A11.8 11.8 0 0 0 20.5 3.5zM12 21a9.7 9.7 0 0 1-4.9-1.3l-.4-.2-3.5.9.9-3.4-.2-.4A9.7 9.7 0 1 1 12 21zm5.3-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1a7.8 7.8 0 0 1-2.3-1.4 8.5 8.5 0 0 1-1.6-2c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.7-.7 1.9-1.3.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+    </a>
+  </div>
+  <div class="social-labels"><span>Instagram</span><span>WhatsApp</span></div>
 </section>
 
-<footer><div class="mark">✿</div><strong>SAKURABlooom</strong><br>Made with a little magic.<br><br>© 2026 SakuraBlooom</footer>
+<footer>
+  <div class="mark">✿</div>
+  <strong>SakuraBlooom</strong><br>
+  Made with a little magic.<br><br>
+  © 2026 SakuraBlooom
+</footer>
 </main>
 </body>
 </html>
