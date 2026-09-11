@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>SakuraBlooom</title>
+  <style>
+    :root{
+      --pink:#e0a3ad;
+      --mint:#78b9b8;
+      --ink:#262626;
+      --soft:#fff7f8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#fff 0%,#fff8fa 100%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink)}
+    body{min-height:100vh;display:flex;justify-content:center}
+    .wrap{width:min(100%,760px);padding:18px 16px 32px}
+    .brand{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      margin:4px 0 18px;
+    }
+    .brand img{
+      width:64px;height:64px;object-fit:cover;object-position:center;
+      border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(224,163,173,.20)
+    }
+    .brand-text{font-size:30px;font-weight:800;letter-spacing:-1px}
+    .brand-text .sakura{color:var(--mint)}
+    .brand-text .bloom{color:var(--pink);font-weight:400}
+    .card{
+      background:#fff;border-radius:24px;padding:12px;
+      box-shadow:0 18px 55px rgba(0,0,0,.10);
+      border:1px solid rgba(224,163,173,.18)
+    }
+    video{
+      width:100%;display:block;border-radius:18px;background:#000;
+      max-height:72vh;
+    }
+    .hint{
+      text-align:center;color:#777;font-size:13px;margin:14px 0 0
+    }
+    .petal{
+      position:fixed;width:12px;height:8px;background:var(--pink);
+      border-radius:100% 0 100% 0;opacity:.16;transform:rotate(30deg);pointer-events:none
+    }
+    .p1{top:11%;left:8%}.p2{top:22%;right:7%;transform:rotate(75deg)}
+    .p3{bottom:12%;left:11%;transform:rotate(120deg)}.p4{bottom:18%;right:12%;transform:rotate(15deg)}
+    @media (max-width:520px){
+      .wrap{padding:12px 10px 24px}
+      .brand-text{font-size:25px}
+      .brand img{width:52px;height:52px;border-radius:15px}
+      .card{border-radius:20px;padding:8px}
+      video{border-radius:15px}
+    }
+  </style>
+</head>
+<body>
+  <span class="petal p1"></span><span class="petal p2"></span>
+  <span class="petal p3"></span><span class="petal p4"></span>
+
+  <main class="wrap">
+    <div class="brand">
+      <img src="brand.png" alt="SakuraBlooom logo">
+      <div class="brand-text"><span class="sakura">Sakura</span><span class="bloom">Blooom</span></div>
+    </div>
+
+    <section class="card">
+      <video controls playsinline preload="metadata">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
+
+    <div class="hint">Tap play to watch</div>
+  </main>
+</body>
+</html>
