@@ -1,116 +1,88 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
-  <title>SakuraBlooom</title>
-  <style>
-    :root{
-      --pink:#e0a3ad;
-      --mint:#78b9b8;
-      --ink:#262626;
-      --soft:#fff7f8;
-    }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      background:linear-gradient(180deg,#fff 0%,#fff8fa 100%);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      color:var(--ink)
-    }
-    body{min-height:100vh;display:flex;justify-content:center}
-    .wrap{width:min(100%,760px);padding:18px 16px 32px}
-    .brand{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      margin:2px 0 18px;
-    }
-    .brand img{
-      width:170px;
-      height:auto;
-      max-height:90px;
-      object-fit:contain;
-      object-position:center;
-      background:transparent;
-      box-shadow:none;
-      border-radius:0;
-      display:block;
-    }
-    .brand-text{
-      font-size:28px;
-      font-weight:800;
-      letter-spacing:-1px;
-      line-height:1;
-    }
-    .brand-text .sakura{color:var(--mint)}
-    .brand-text .bloom{color:var(--pink);font-weight:400}
-    .card{
-      background:#fff;
-      border-radius:24px;
-      padding:12px;
-      box-shadow:0 18px 55px rgba(0,0,0,.10);
-      border:1px solid rgba(224,163,173,.18)
-    }
-    video{
-      width:100%;
-      display:block;
-      border-radius:18px;
-      background:#000;
-      max-height:72vh;
-    }
-    .hint{
-      text-align:center;
-      color:#777;
-      font-size:13px;
-      margin:14px 0 0
-    }
-    .petal{
-      position:fixed;
-      width:12px;
-      height:8px;
-      background:var(--pink);
-      border-radius:100% 0 100% 0;
-      opacity:.16;
-      transform:rotate(30deg);
-      pointer-events:none
-    }
-    .p1{top:11%;left:8%}
-    .p2{top:22%;right:7%;transform:rotate(75deg)}
-    .p3{bottom:12%;left:11%;transform:rotate(120deg)}
-    .p4{bottom:18%;right:12%;transform:rotate(15deg)}
-    @media (max-width:520px){
-      .wrap{padding:12px 10px 24px}
-      .brand img{width:145px;max-height:78px}
-      .brand-text{font-size:24px}
-      .card{border-radius:20px;padding:8px}
-      video{border-radius:15px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff9fa">
+<title>SakuraBlooom</title>
+<style>
+:root{--pink:#dda0aa;--pink2:#f6d8de;--mint:#76b9b6;--ink:#5f5a5c;--paper:#fffafa}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);
+background:linear-gradient(180deg,#fff 0%,#fff9fa 48%,#fdeff2 100%);min-height:100vh}
+.wrap{width:min(92%,720px);margin:auto;padding:34px 0 42px}
+.hero{text-align:center;padding:10px 0 22px}
+.logo{display:block;width:min(48vw,230px);max-height:210px;object-fit:contain;margin:0 auto 12px}
+.brand{font-size:clamp(28px,8vw,44px);font-weight:750;letter-spacing:-1.6px;margin:0}
+.brand .sakura{color:var(--mint)} .brand .bloom{color:var(--pink);font-weight:400}
+.tagline{margin:9px auto 0;font-size:15px;color:#8c8588}
+.card{background:rgba(255,255,255,.88);border:1px solid rgba(221,160,170,.22);
+border-radius:25px;box-shadow:0 12px 36px rgba(202,145,157,.13);padding:12px;margin:0 0 18px}
+.video{width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9}
+.playhint{text-align:center;margin:13px 0 5px;font-size:14px;color:#9a858a}
+.section{padding:24px 4px 4px;text-align:center}
+.kicker{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:var(--pink);font-weight:800}
+h2{color:#615b5d;font-size:24px;margin:7px 0 9px}
+p{line-height:1.65;margin:0 auto;max-width:580px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}
+.step{background:#fff;border:1px solid #f3dce1;border-radius:18px;padding:15px 7px;font-weight:650;font-size:13px}
+.step b{display:block;color:var(--mint);font-size:21px;margin-bottom:5px}
+.details{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.pill{padding:9px 13px;border-radius:999px;background:#fff;border:1px solid #f0d8de;font-size:13px}
+.actions{display:grid;gap:10px;margin-top:17px}
+.btn{text-decoration:none;border-radius:16px;padding:14px 18px;font-weight:750;display:block}
+.primary{background:var(--pink);color:white}.secondary{background:#e8f5f3;color:#4f918f}
+footer{text-align:center;padding:35px 0 10px;color:#a6969b;font-size:12px}
+.mark{font-size:24px;color:var(--pink);margin-bottom:7px}
+.petal{position:fixed;width:13px;height:8px;background:#f4cbd3;border-radius:100% 0 100% 0;opacity:.45;z-index:-1;animation:fall 11s linear infinite}
+.p1{left:8%;top:-5%;animation-delay:0s}.p2{left:76%;top:-8%;animation-delay:3s}.p3{left:42%;top:-10%;animation-delay:6s}
+@keyframes fall{to{transform:translate(40px,115vh) rotate(420deg)}}
+@media(max-width:420px){.wrap{width:94%;padding-top:24px}.logo{width:170px}.steps{gap:6px}.step{font-size:12px;padding:13px 4px}}
+@media(prefers-reduced-motion:reduce){.petal{display:none}}
+</style>
 </head>
 <body>
-  <span class="petal p1"></span><span class="petal p2"></span>
-  <span class="petal p3"></span><span class="petal p4"></span>
+<i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i>
+<main class="wrap">
+<section class="hero">
+<img class="logo" src="logo.png" alt="SakuraBlooom logo">
+<h1 class="brand"><span class="sakura">SAKURA</span><span class="bloom">Blooom</span></h1>
+<p class="tagline">A little piece of anime, made for you. 🌸</p>
+</section>
 
-  <main class="wrap">
-    <div class="brand">
-      <img src="IMG_0279.png" alt="SakuraBlooom logo">
-      <div class="brand-text">
-        <span class="sakura">Sakura</span><span class="bloom">Blooom</span>
-      </div>
-    </div>
+<div class="card">
+<video class="video" controls playsinline preload="metadata"><source src="video.mp4" type="video/mp4"></video>
+<div class="playhint">Tap to unlock your moment ✨</div>
+</div>
 
-    <section class="card">
-      <video controls playsinline preload="metadata">
-        <source src="video.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </section>
+<section class="section">
+<div class="kicker">Your SakuraBlooom Piece</div>
+<h2>Made to come alive.</h2>
+<p>Made with care, printed layer by layer, and brought to life with NFC.</p>
+<div class="steps">
+<div class="step"><b>01</b>Tap</div><div class="step"><b>02</b>Discover</div><div class="step"><b>03</b>Enjoy</div>
+</div>
+</section>
 
-    <div class="hint">Tap play to watch</div>
-  </main>
+<section class="section">
+<div class="kicker">Product details</div>
+<h2>A physical piece. A digital moment.</h2>
+<div class="details">
+<span class="pill">3D Printed</span><span class="pill">NFC Enabled</span><span class="pill">SakuraBlooom Design</span>
+</div>
+</section>
+
+<section class="section">
+<div class="kicker">Stay connected</div>
+<h2>Welcome to SakuraBlooom 🌸</h2>
+<p>More characters, more moments, and more pieces are waiting to bloom.</p>
+<div class="actions">
+<a class="btn primary" href="https://www.instagram.com/sakurabloom_3d?stkn=bTlyeGVhMmx5ampn&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">Follow us on Instagram</a>
+<a class="btn secondary" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank" rel="noopener" aria-label="Contact SakuraBlooom">Contact SakuraBlooom</a>
+</div>
+</section>
+
+<footer><div class="mark">✿</div><strong>SAKURABlooom</strong><br>Made with a little magic.<br><br>© 2026 SakuraBlooom</footer>
+</main>
 </body>
 </html>
