@@ -1,192 +1,917 @@
-<!doctype html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff7f9"><title>SakuraBlooom | 3D Printing Studio</title>
-<meta name="description" content="SakuraBlooom — استوديو طباعة ثلاثية الأبعاد للفيجرز، الميداليات، NFC والتصميمات المخصصة.">
-<style>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8fa">
+  <title>SakuraBlooom | 3D Printing Studio</title>
+  <meta name="description" content="SakuraBlooom — متجر واستوديو طباعة ثلاثية الأبعاد للفيجرز، الميداليات، منتجات NFC والطلبات المخصصة.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&family=Lemonada:wght@500;600;700;800&display=swap');
+    :root{
+      --pink:#dda0aa; --pink-dark:#b96879; --rose:#fff0f3;
+      --mint:#76b9b6; --mint-soft:#edf8f7;
+      --ink:#393436; --muted:#81777b; --line:#efd8dd; --white:#fff;
+      --shadow:0 20px 60px rgba(169,96,113,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;overflow-x:hidden;font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff 0%,#fff9fb 48%,#fdf1f4 100%)}
+    a{color:inherit}.container{width:min(1140px,92%);margin:auto}
 
+    nav{position:sticky;top:0;z-index:40;overflow:hidden;background:rgba(255,255,255,.80);backdrop-filter:blur(18px);border-bottom:1px solid rgba(221,160,170,.14)}
+    nav::before{content:"";position:absolute;inset:-70% -15%;pointer-events:none;background:
+      radial-gradient(circle at 18% 55%,rgba(221,160,170,.18),transparent 24%),
+      radial-gradient(circle at 82% 40%,rgba(118,185,182,.15),transparent 26%);
+      filter:blur(20px);animation:navAurora 9s ease-in-out infinite alternate}
+    nav::after{content:"";position:absolute;left:-35%;bottom:0;width:34%;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(221,160,170,.75),rgba(118,185,182,.65),transparent);filter:blur(.1px);animation:navShine 7s linear infinite}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative;z-index:2}
+    .brand{display:flex;align-items:center;gap:7px;text-decoration:none;transition:transform .28s ease,filter .28s ease;transform-origin:center;direction:ltr}
+    .brand:hover{transform:translateY(-2px) scale(1.025);filter:drop-shadow(0 8px 14px rgba(221,160,170,.18))}
+    .brand-symbol{width:43px;height:43px;object-fit:contain;display:block;flex:0 0 auto;filter:drop-shadow(0 5px 10px rgba(221,160,170,.10))}
+    .brand-wordmark{width:154px;height:38px;object-fit:contain;object-position:left center;display:block;flex:0 0 auto}
+
+    
+    .links{display:flex;gap:17px;align-items:center;font-size:14px;font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;font-weight:700}
+    .links a{position:relative;text-decoration:none;color:#655d60;transition:color .25s ease,transform .25s ease}
+    .links a:not(.cta)::after{content:"";position:absolute;right:50%;left:50%;bottom:-7px;height:2px;border-radius:99px;background:linear-gradient(90deg,var(--pink),var(--mint));transition:right .28s ease,left .28s ease}
+    .links a:not(.cta):hover{color:var(--pink-dark);transform:translateY(-1px)}
+    .links a:not(.cta):hover::after{right:10%;left:10%}
+    .cta{background:linear-gradient(135deg,var(--pink),#e3a7b1);color:#fff!important;padding:11px 16px;border-radius:14px;font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;font-weight:800;box-shadow:0 8px 18px rgba(221,160,170,.18);animation:ctaBreath 3.8s ease-in-out infinite}
+    .cta:hover{transform:translateY(-2px) scale(1.02)}
+    @keyframes navAurora{0%{transform:translate3d(-2%,0,0) scale(1)}100%{transform:translate3d(4%,2%,0) scale(1.08)}}
+    @keyframes navShine{0%{left:-35%}100%{left:110%}}
+    @keyframes ctaBreath{0%,100%{box-shadow:0 8px 18px rgba(221,160,170,.16)}50%{box-shadow:0 10px 28px rgba(221,160,170,.30)}}
+    @media (prefers-reduced-motion:reduce){nav::before,nav::after,.cta{animation:none!important}}
+
+    .hero{padding:70px 0 46px;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.8);padding:8px 12px;border-radius:999px;font-size:13px;color:#8d7379}
+    h1{font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;font-size:clamp(42px,6.4vw,74px);line-height:1.48;margin:18px 0 26px;letter-spacing:-.4px;font-weight:800}
+    h1 span{color:var(--pink-dark);display:inline-block;transform:rotate(-1deg);text-shadow:0 8px 22px rgba(221,160,170,.16)}
+    .lead{font-size:18px;line-height:1.9;color:#746b6e;max-width:650px}
+    .actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 20px;border-radius:16px;font-weight:800;border:1px solid var(--line);background:#fff;transition:.2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(163,104,118,.10)}
+    .btn.primary{background:var(--pink);color:#fff;border-color:transparent}.btn.mint{background:var(--mint-soft);color:#477f7c}
+    .hero-card{background:#fff;border:1px solid var(--line);padding:0;border-radius:34px;box-shadow:var(--shadow);min-height:420px;display:grid;place-items:center;overflow:hidden;position:relative;isolation:isolate}
+    .hero-card img{width:100%;height:420px;object-fit:cover;object-position:center;display:block;transform:scale(1.01);transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease;filter:saturate(1.03) contrast(1.02)}
+    .hero-card:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at center,transparent 52%,rgba(18,10,15,.04) 70%,rgba(18,10,15,.16) 100%);opacity:.35;transition:opacity .7s ease}
+    .hero-card:hover img{transform:scale(1.095);filter:saturate(1.08) contrast(1.04)}
+    .hero-card:hover:after{opacity:.9}
+    @media (hover:none){.hero-card img{transform:scale(1.035)}}
+
+    .section{padding:70px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+    .kicker{font-size:12px;font-weight:900;color:var(--pink-dark);text-transform:uppercase;letter-spacing:1.6px}
+    h2{font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;font-size:clamp(29px,4.6vw,44px);line-height:1.55;margin:6px 0 0;font-weight:700}.intro{max-width:610px;line-height:1.85;color:var(--muted);margin:0}
+
+    h3{font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;font-weight:700;line-height:1.5}
+    .about{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .info,.branch,.payments-wrap,.contact-box{background:#fff;border:1px solid var(--line);box-shadow:0 12px 40px rgba(163,104,118,.07)}
+    .info{border-radius:24px;padding:24px}.info b{display:block;color:var(--mint);font-size:21px;margin-bottom:8px}.info p{margin:0;color:var(--muted);line-height:1.75}
+
+    .branch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .branch{position:relative;overflow:hidden;isolation:isolate;min-height:255px;border-radius:30px;padding:27px;text-decoration:none;transition:.25s ease}
+    .branch:hover{transform:translateY(-4px);box-shadow:0 20px 54px rgba(163,104,118,.12)}
+    .branch:after{content:"";position:absolute;z-index:0;width:130px;height:130px;border-radius:50%;background:linear-gradient(145deg,var(--rose),var(--mint-soft));left:-36px;bottom:-45px;opacity:.68}
+    .branch h3,.branch p,.branch .go{position:relative;z-index:2}
+    .branch h3{font-size:28px;margin:0 0 8px;padding-right:88px}
+    .branch p{color:var(--muted);line-height:1.75;margin:0 0 24px;max-width:82%}
+    .go{display:inline-flex;padding:10px 13px;border-radius:12px;background:var(--rose);color:#9d5968;font-weight:800;font-size:13px}
+    .branch-icon{position:absolute;z-index:3;right:22px;top:20px;width:62px;height:62px;border-radius:19px;display:grid;place-items:center;background:linear-gradient(145deg,#fff7f9,#edf8f6);border:1px solid rgba(221,160,170,.32);box-shadow:0 10px 24px rgba(163,104,118,.10);transition:.25s ease}
+    .branch:hover .branch-icon{transform:translateY(-2px) rotate(-3deg) scale(1.04)}
+    .branch-icon svg{width:44px;height:44px;display:block;overflow:visible}
+    @media(max-width:520px){.branch-icon{width:56px;height:56px;right:18px;top:18px;border-radius:17px}.branch-icon svg{width:39px;height:39px}.branch h3{padding-right:72px}}
+
+    .payments-wrap{border-radius:30px;padding:28px;background:linear-gradient(135deg,#fff,#fff7f9)}
+    .payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+    .payment-card{min-height:105px;background:#fff;border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+    .payment-logo{font-size:23px;font-weight:900}.mada{color:#16736f}.apple{color:#111}.visa{color:#173a91}.master{color:#8f5360}
+    .payment-card small,.payment-note{color:var(--muted)}.payment-note{font-size:13px;line-height:1.8;margin:16px 0 0}
+
+    .contact-box{border-radius:30px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .social{display:flex;gap:11px;flex-wrap:wrap}.social a{text-decoration:none;padding:12px 16px;border-radius:14px;font-weight:800}.wa{background:#e6f5f0;color:#43826f}.ig{background:#f9e6eb;color:#a6536b}
+    footer{padding:38px 0 46px;text-align:center;color:#95898d;font-size:13px}
+
+    /* Calm, light Sakura petals */
+    .sakura-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:60}
+    .sakura-petal{position:absolute;top:-8vh;width:9px;height:7px;border-radius:75% 25% 70% 30%;background:linear-gradient(145deg,rgba(248,198,208,.80),rgba(221,160,170,.68));opacity:.25;filter:blur(.05px);animation:sakuraFall linear infinite;will-change:transform}
+    .sakura-petal:after{content:"";position:absolute;inset:2px 3px;background:rgba(255,255,255,.32);border-radius:70% 30% 70% 30%}
+    @keyframes sakuraFall{
+      0%{transform:translate3d(0,-10vh,0) rotate(0deg)}
+      45%{transform:translate3d(calc(var(--drift) * .45),48vh,0) rotate(120deg)}
+      100%{transform:translate3d(var(--drift),110vh,0) rotate(260deg)}
+    }
+    @media(prefers-reduced-motion:reduce){.sakura-layer{display:none}}
+
+    @media(max-width:880px){.hero{grid-template-columns:1fr;gap:25px}.about{grid-template-columns:1fr}.branch-grid{grid-template-columns:1fr}.links a:not(.cta){display:none}.contact-box{display:block}.social{margin-top:18px}}
+    @media(max-width:700px){.payment-grid{grid-template-columns:1fr 1fr}.payments-wrap{padding:22px}.hero{padding-top:44px}.hero-card{min-height:300px}.hero-card img{height:300px}.section{padding:52px 0}.head{display:block}.intro{margin-top:12px}}
+    @media(max-width:520px){.container{width:94%}h1{font-size:38px;line-height:1.55;letter-spacing:0}.lead{font-size:16px}.actions .btn{width:100%}.branch{min-height:225px;padding:22px}.branch h3{font-size:24px}.payment-grid{gap:10px}.payment-logo{font-size:19px}}
+  
+.reveal{opacity:0;transform:translateY(26px) scale(.985);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}
+.reveal.is-visible{opacity:1;transform:none}
+.tilt-card{transform-style:preserve-3d;transition:transform .22s ease,box-shadow .22s ease;will-change:transform}
+.tilt-card:hover{box-shadow:0 24px 60px rgba(163,104,118,.14)}
+.tilt-card .visual,.tilt-card .branch-icon{transition:transform .28s ease,filter .28s ease}
+.tilt-card:hover .visual,.tilt-card:hover .branch-icon{transform:translateZ(18px) scale(1.035)}
+@media(hover:none){.tilt-card{transform:none!important}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.tilt-card{transform:none!important;transition:none}}
+.how-section{padding:28px 0 76px}.how-head{text-align:center;margin-bottom:26px}.how-head .eyebrow{margin-bottom:10px}
+.how-head h2{margin:0;font-size:clamp(30px,4.5vw,46px)}.how-head p{margin:10px auto 0;max-width:620px;color:var(--muted);line-height:1.8}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.how-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px 24px;min-height:220px;box-shadow:0 12px 40px rgba(163,104,118,.07)}
+.how-card:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;top:-46px;left:-38px;background:linear-gradient(145deg,rgba(221,160,170,.18),rgba(118,185,182,.16))}
+.how-num{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,var(--rose),var(--mint-soft));color:var(--pink-dark);font-weight:900;margin-bottom:18px;border:1px solid rgba(221,160,170,.25)}
+.how-card h3{position:relative;z-index:2;margin:0 0 8px;font-size:24px}.how-card p{position:relative;z-index:2;margin:0;color:var(--muted);line-height:1.75}
+@media(max-width:820px){.how-grid{grid-template-columns:1fr}}
+
+
+.contact-bottom{
+  padding:46px 0 30px;
+  margin-top:22px;
+  background:linear-gradient(145deg,rgba(255,240,243,.88),rgba(237,248,247,.88));
+  border-top:1px solid var(--line);
+}
+.contact-bottom-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.contact-kicker{
+  display:inline-block;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:var(--pink-dark);
+  margin-bottom:8px;
+}
+.contact-bottom h2{margin:0 0 8px;font-size:clamp(28px,4vw,40px)}
+.contact-bottom p{margin:0;color:var(--muted);line-height:1.8}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+.contact-actions a{
+  text-decoration:none;
+  padding:12px 17px;
+  border-radius:14px;
+  font-weight:800;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  transition:.25s ease;
+}
+.contact-actions a:first-child{
+  background:var(--pink);
+  color:#fff;
+  border-color:transparent;
+}
+.contact-actions a:hover{transform:translateY(-2px)}
+@media(max-width:720px){
+  .contact-bottom-inner{flex-direction:column;align-items:flex-start}
+}
+
+
+/* ===== Unified heading typography ===== */
+:root{
+  --sakura-heading-font:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif;
+}
+h1,h2,h3,h4,
+.section-head h2,.sales-group-head h3,.products-showcase-head h2,
+.custom-unified h1,.custom-unified h2,.how-head h2,.how-card h3,
+.figure-product-info h3,.sale-slot-info h4,.info b,.branch h3{
+  font-family:var(--sakura-heading-font)!important;
+  font-weight:800!important;
+  line-height:1.48!important;
+  letter-spacing:-.35px;
+}
+.lang-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  min-width:92px;height:42px;padding:0 14px;border-radius:999px;
+  border:1.5px solid rgba(221,160,170,.55);
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(255,247,250,.96) 58%,rgba(237,248,246,.96));
+  color:var(--pink-dark);font:800 13px/1 Arial,sans-serif;letter-spacing:.35px;
+  cursor:pointer;transition:.24s ease;direction:ltr;position:relative;overflow:hidden;
+  box-shadow:0 10px 22px rgba(221,160,170,.10), inset 0 1px 0 rgba(255,255,255,.95)
+}
+.lang-toggle::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 15%,rgba(255,255,255,.6) 50%,transparent 85%);
+  opacity:.55;pointer-events:none
+}
+.lang-toggle:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 14px 28px rgba(163,104,118,.16), inset 0 1px 0 rgba(255,255,255,.98);
+  border-color:rgba(214,144,164,.72)
+}
+.lang-toggle span{
+  position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:27px;padding:0 8px;border-radius:999px;transition:.22s ease
+}
+.lang-toggle .active{
+  color:var(--mint);font-weight:900;
+  background:linear-gradient(135deg,rgba(220,245,240,.98),rgba(255,255,255,.92));
+  box-shadow:0 5px 12px rgba(118,185,182,.14), inset 0 1px 0 rgba(255,255,255,.95)
+}
+.lang-toggle span:not(.active){opacity:.72}
+html[dir="ltr"] body{text-align:left}
+html[dir="ltr"] .category-hero,
+html[dir="ltr"] .section-head,
+html[dir="ltr"] .products-showcase-head,
+html[dir="ltr"] .sales-group-head,
+html[dir="ltr"] .contact-bottom-inner{direction:ltr}
+html[dir="ltr"] .custom-form,
+html[dir="ltr"] .idea-form{direction:ltr}
+
+
+/* ===== Pro UX upgrade ===== */
+#scrollProgress{
+  position:fixed;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--pink),var(--mint));
+  z-index:9999;box-shadow:0 0 12px rgba(221,160,170,.35)
+}
+.back-top{
+  position:fixed;left:22px;bottom:22px;z-index:90;
+  width:46px;height:46px;border:1px solid var(--line);border-radius:16px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(12px);
+  color:var(--pink-dark);display:grid;place-items:center;
+  font-size:21px;font-weight:900;cursor:pointer;
+  box-shadow:0 12px 28px rgba(163,104,118,.14);
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:.25s ease
+}
+.back-top.show{opacity:1;pointer-events:auto;transform:none}
+.back-top:hover{transform:translateY(-2px)}
+
+/* Active nav */
+.links a.active-page{
+  color:var(--pink-dark)!important;
+  font-weight:900;
+}
+.links a.active-page:after{
+  right:10%!important;left:10%!important
+}
+
+/* Mobile navigation */
+.menu-toggle{
+  display:none;width:42px;height:42px;border:1px solid var(--line);
+  border-radius:14px;background:#fff;color:var(--ink);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  box-shadow:0 8px 18px rgba(163,104,118,.08)
+}
+.menu-toggle span{width:18px;height:2px;border-radius:99px;background:currentColor;transition:.25s ease}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-panel{
+  display:none;position:absolute;top:72px;left:4%;right:4%;
+  padding:12px;border:1px solid var(--line);border-radius:20px;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(18px);
+  box-shadow:0 20px 50px rgba(163,104,118,.13);z-index:70
+}
+.mobile-panel.open{display:grid;gap:7px}
+.mobile-panel a,.mobile-panel button{
+  width:100%;text-decoration:none;border:0;background:transparent;
+  color:var(--ink);font:800 14px/1.4 inherit;text-align:center;
+  padding:11px 12px;border-radius:12px;cursor:pointer
+}
+.mobile-panel a:hover,.mobile-panel button:hover{background:#fff4f7;color:var(--pink-dark)}
+@media(max-width:900px){
+  .menu-toggle{display:flex}
+  .nav>.links{display:none!important}
+}
+
+/* Product quick view */
+.quick-modal{
+  position:fixed;inset:0;z-index:1000;display:none;place-items:center;
+  padding:20px;background:rgba(36,28,32,.38);backdrop-filter:blur(8px)
+}
+.quick-modal.open{display:grid}
+.quick-dialog{
+  width:min(780px,96vw);max-height:90vh;overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:30px;
+  box-shadow:0 30px 90px rgba(39,25,31,.22);
+  position:relative;padding:22px
+}
+.quick-close{
+  position:absolute;top:14px;left:14px;width:38px;height:38px;
+  border:1px solid var(--line);border-radius:13px;background:#fff;
+  cursor:pointer;font-size:22px;color:var(--ink);z-index:3
+}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.quick-media{
+  min-height:330px;border-radius:24px;overflow:hidden;
+  background:linear-gradient(145deg,#fff8fa,#edf8f7);
+  border:1px solid var(--line);display:grid;place-items:center
+}
+.quick-media img{width:100%;height:100%;object-fit:contain;display:block}
+.quick-placeholder{
+  width:92px;height:92px;border-radius:28px;background:#fff;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--pink-dark);font-size:28px;font-weight:900;
+  box-shadow:0 12px 30px rgba(163,104,118,.08)
+}
+.quick-copy h3{
+  font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif!important;
+  font-size:34px;line-height:1.45;margin:0 0 10px
+}
+.quick-copy p{color:var(--muted);line-height:1.8;margin:0 0 18px}
+.quick-price{font-size:20px;font-weight:900;margin-bottom:18px}
+.quick-actions{display:flex;gap:10px;flex-wrap:wrap}
+.quick-order{
+  border:0;cursor:pointer;text-decoration:none;
+  background:linear-gradient(135deg,var(--pink),#e3a7b1);color:#fff;
+  padding:12px 16px;border-radius:14px;font-weight:900
+}
+.quick-secondary{
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  padding:12px 16px;border-radius:14px;font-weight:800;cursor:pointer
+}
+.shop-card{cursor:pointer}
+.shop-card .shop-order{position:relative;z-index:4}
+@media(max-width:700px){
+  .quick-grid{grid-template-columns:1fr}
+  .quick-media{min-height:250px}
+  .quick-copy h3{font-size:28px}
+}
+
+
+/* ===== Customer Reviews ===== */
+.reviews-section{padding:34px 0 78px}
+.reviews-head{
+  display:flex;align-items:end;justify-content:space-between;
+  gap:22px;margin-bottom:24px
+}
+.reviews-head h2{
+  margin:6px 0 0;
+  font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif!important;
+  font-size:clamp(30px,4.8vw,46px);
+  line-height:1.5
+}
+.reviews-head p{margin:0;max-width:560px;color:var(--muted);line-height:1.8}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review-card{
+  position:relative;overflow:hidden;background:#fff;
+  border:1px solid var(--line);border-radius:26px;
+  padding:23px;min-height:220px;
+  box-shadow:0 12px 40px rgba(163,104,118,.07);
+  transition:transform .25s ease,box-shadow .25s ease
+}
+.review-card:hover{transform:translateY(-5px);box-shadow:0 22px 54px rgba(163,104,118,.13)}
+.review-card:before{
+  content:"";position:absolute;width:110px;height:110px;border-radius:50%;
+  left:-42px;top:-46px;
+  background:linear-gradient(145deg,rgba(221,160,170,.16),rgba(118,185,182,.13))
+}
+.review-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.review-avatar{
+  width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--rose),var(--mint-soft));
+  border:1px solid var(--line);color:var(--pink-dark);font-weight:900
+}
+.review-stars{letter-spacing:3px;color:var(--pink-dark);font-size:15px;opacity:.55}
+.review-card h3{
+  position:relative;z-index:2;margin:0 0 8px;
+  font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif!important;
+  font-size:21px
+}
+.review-card p{position:relative;z-index:2;margin:0;color:var(--muted);line-height:1.75}
+.review-label{
+  position:relative;z-index:2;display:inline-flex;margin-top:16px;
+  padding:6px 9px;border-radius:999px;background:#fff6f8;
+  border:1px solid var(--line);font-size:11px;font-weight:900;color:var(--pink-dark)
+}
+.review-cta{
+  margin-top:20px;display:flex;justify-content:center
+}
+.review-cta a{
+  text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 17px;border-radius:14px;font-weight:900;
+  background:linear-gradient(135deg,var(--pink),#e3a7b1);
+  color:#fff;box-shadow:0 10px 24px rgba(221,160,170,.20);
+  transition:.22s ease
+}
+.review-cta a:hover{transform:translateY(-2px)}
+@media(max-width:850px){.reviews-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){
+  .reviews-head{display:block}.reviews-head p{margin-top:8px}
+  .reviews-grid{grid-template-columns:1fr}
+}
+
+
+/* ===== Publish-ready polish ===== */
+:root{--section-gap:84px}
+.category-hero{
+  padding-top:64px!important;padding-bottom:52px!important;
+  min-height:auto!important;align-items:center!important
+}
+.category-hero h1{
+  font-size:clamp(40px,5.3vw,68px)!important;
+  line-height:1.22!important;margin:10px 0 14px!important
+}
+.category-hero .lead{max-width:650px;line-height:1.9!important;margin:0!important}
+.shop-section{padding:22px 0 88px!important}
+.shop-head{margin-bottom:25px!important}
+.shop-head h2{font-size:clamp(32px,4.2vw,48px)!important;line-height:1.35!important}
+.shop-grid{gap:20px!important}
+.shop-card{border-radius:28px!important;overflow:hidden!important}
+.shop-image{height:280px!important}
+.shop-info{padding:21px!important}
+.shop-type{
+  display:inline-flex;align-items:center;min-height:26px;padding:5px 9px;
+  border:1px solid var(--line);border-radius:999px;background:#fff7f9;
+  color:var(--pink-dark);font-size:11px;font-weight:900;margin-bottom:10px
+}
+.shop-info h3{font-size:24px!important;margin-bottom:8px!important}
+.shop-info p{font-size:14px!important;line-height:1.8!important;min-height:25px}
+.shop-bottom{margin-top:17px;align-items:center!important}
+.shop-price{
+  min-width:84px;min-height:39px;padding:8px 12px;border-radius:12px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#fff6f8,#f1faf8);border:1px solid var(--line);
+  font-size:17px!important;font-weight:900!important
+}
+.shop-order{padding:11px 15px!important;border-radius:13px!important}
+.quick-view-hint{
+  position:absolute;inset-inline-end:17px;bottom:17px;z-index:3;
+  padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.92);
+  border:1px solid var(--line);box-shadow:0 8px 20px rgba(163,104,118,.08);
+  color:var(--ink);font-size:11px;font-weight:900;opacity:0;transform:translateY(5px);
+  transition:.22s ease;pointer-events:none
+}
+.shop-card:hover .quick-view-hint{opacity:1;transform:none}
+
+/* Reviews: honest empty state until real reviews arrive */
+.reviews-empty{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;
+  padding:26px;border:1px solid var(--line);border-radius:28px;
+  background:linear-gradient(135deg,rgba(255,248,250,.96),rgba(240,250,248,.94));
+  box-shadow:0 14px 40px rgba(163,104,118,.07)
+}
+.reviews-empty-icon{
+  width:74px;height:74px;border-radius:23px;display:grid;place-items:center;
+  background:#fff;border:1px solid var(--line);box-shadow:0 10px 25px rgba(163,104,118,.08)
+}
+.reviews-empty-icon svg{width:36px;height:36px}
+.reviews-empty h3{
+  margin:0 0 6px;font-family:"Norsal","Baloo Bhaijaan 2",Tahoma,Arial,sans-serif!important;
+  font-size:25px;line-height:1.45
+}
+.reviews-empty p{margin:0;color:var(--muted);line-height:1.8}
+.reviews-empty .review-share{
+  white-space:nowrap;text-decoration:none;padding:12px 16px;border-radius:14px;
+  background:linear-gradient(135deg,var(--pink),#e3a7b1);color:#fff;font-weight:900;
+  box-shadow:0 10px 24px rgba(221,160,170,.2);transition:.2s ease
+}
+.reviews-empty .review-share:hover{transform:translateY(-2px)}
+
+/* Floating WhatsApp */
+.floating-wa{
+  position:fixed;right:22px;bottom:22px;z-index:96;
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  min-height:49px;padding:0 16px 0 12px;border-radius:17px;
+  color:#fff;background:linear-gradient(135deg,#76B9B6,#65aaa7);
+  border:1px solid rgba(255,255,255,.5);box-shadow:0 15px 32px rgba(68,135,132,.25);
+  font-weight:900;transition:.22s ease
+}
+.floating-wa svg{width:25px;height:25px;flex:0 0 auto}
+.floating-wa:hover{transform:translateY(-3px);box-shadow:0 19px 38px rgba(68,135,132,.3)}
+.floating-wa-label{font-size:13px}
+
+/* Better spacing before contact */
+.contact-bottom{margin-top:0!important}
+.contact-bottom-inner{padding-top:4px;padding-bottom:4px}
+
+@media(max-width:900px){
+  .category-hero{padding-top:44px!important;padding-bottom:38px!important}
+  .shop-image{height:245px!important}
+  .reviews-empty{grid-template-columns:auto 1fr}
+  .reviews-empty .review-share{grid-column:1/-1;justify-self:start}
+}
+@media(max-width:620px){
+  .category-hero h1{font-size:clamp(36px,11vw,50px)!important}
+  .shop-section{padding-bottom:68px!important}
+  .shop-image{height:235px!important}
+  .reviews-empty{grid-template-columns:1fr;text-align:center}
+  .reviews-empty-icon{margin:auto}
+  .reviews-empty .review-share{justify-self:center}
+  .floating-wa{width:50px;height:50px;min-height:50px;padding:0;justify-content:center;border-radius:16px}
+  .floating-wa-label{display:none}
+}
+
+
+/* ===== SakuraBlooom unified font ===== */
 @font-face{font-family:"The Year of Handicrafts";src:url("assets/fonts/TheYearofHandicrafts-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"The Year of Handicrafts";src:url("assets/fonts/TheYearofHandicrafts-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:"The Year of Handicrafts";src:url("assets/fonts/TheYearofHandicrafts-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:"The Year of Handicrafts";src:url("assets/fonts/TheYearofHandicrafts-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"The Year of Handicrafts";src:url("assets/fonts/TheYearofHandicrafts-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
 
-:root{--pink:#de9eaa;--pink-dark:#b96d7d;--rose:#f8e4e8;--mint:#79b9b5;--mint-soft:#e8f5f3;--ink:#393436;--muted:#867c80;--line:#efd8dd;--white:#fff;--shadow:0 24px 70px rgba(169,96,113,.14)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:"The Year of Handicrafts",-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff 0%,#fff8fa 42%,#fdf0f3 100%)}
-a{color:inherit}.container{width:min(1160px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.87);backdrop-filter:blur(18px);border-bottom:1px solid rgba(222,158,170,.15)}
-.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:21px}
-.brand img{width:50px;height:50px;object-fit:contain;border-radius:16px}
-.links{display:flex;align-items:center;gap:18px;font-size:14px}.links a{text-decoration:none;color:#655d60}.cta{background:var(--pink);color:#fff!important;padding:11px 16px;border-radius:14px;font-weight:700}
-.hero{padding:72px 0 46px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:999px;font-size:13px;color:#8d7379}
-h1{font-size:clamp(44px,7.4vw,82px);line-height:.98;letter-spacing:-.5px;margin:18px 0 20px}h1 span{color:var(--pink)}
-.lead{font-size:18px;line-height:1.9;color:#746b6e;max-width:650px}
-.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 20px;border-radius:16px;font-weight:700;border:1px solid var(--line);background:#fff}
-.btn.primary{background:var(--pink);color:#fff;border-color:transparent}.btn.mint{background:var(--mint-soft);color:#477f7c}
-.hero-card{background:#fff;border:1px solid var(--line);padding:15px;border-radius:34px;box-shadow:var(--shadow);transform:rotate(-1.2deg)}
-.hero-card img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;border-radius:25px}
-.section{padding:72px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:26px}
-.kicker{font-size:12px;font-weight:800;color:var(--pink-dark);text-transform:uppercase;letter-spacing:1.7px}
-h2{font-size:clamp(30px,5vw,48px);margin:6px 0 0;letter-spacing:0}.intro{max-width:620px;line-height:1.8;color:var(--muted);margin:0}
-.branch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.branch{position:relative;overflow:hidden;min-height:300px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:26px;text-decoration:none;box-shadow:0 12px 42px rgba(163,104,118,.08);transition:.25s}
-.branch:hover{transform:translateY(-4px);box-shadow:0 22px 56px rgba(163,104,118,.13)}
-.branch h3{font-size:28px;margin:0 0 8px}.branch p{color:var(--muted);line-height:1.7;margin:0 0 22px}
-.branch .go{display:inline-flex;padding:10px 13px;border-radius:12px;background:var(--rose);color:#9d5968;font-weight:700;font-size:13px}
-.about{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.info{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}.info b{display:block;color:var(--mint);font-size:26px;margin-bottom:8px}.info p{color:var(--muted);line-height:1.7;margin:0}
-.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.social a{text-decoration:none;padding:12px 16px;border-radius:14px;font-weight:700}.ig{background:#f9e6eb;color:#a6536b}.wa{background:#e6f5f0;color:#43826f}
-footer{padding:40px 0 48px;text-align:center;color:#95898d;font-size:13px}
-.catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 40px rgba(163,104,118,.08)}.product img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}.product .body{padding:18px}.product h3{margin:0 0 7px;font-size:20px}.product p{color:var(--muted);line-height:1.65;font-size:14px}.price{font-weight:800;color:var(--pink-dark)}.order{display:inline-flex;margin-top:10px;text-decoration:none;padding:10px 13px;border-radius:12px;background:var(--rose);color:#9d5968;font-weight:700;font-size:13px}
-.back{display:inline-flex;margin-top:26px;text-decoration:none;color:#8b767c;font-weight:700}
-@media(max-width:880px){.hero{grid-template-columns:1fr}.branch-grid{grid-template-columns:1fr}.about{grid-template-columns:1fr}.catalog{grid-template-columns:1fr 1fr}.links a:not(.cta){display:none}}
-@media(max-width:560px){.catalog{grid-template-columns:1fr}.container{width:min(94%,1160px)}.head{display:block}.intro{margin-top:12px}}
+:root{--sakura-font:"The Year of Handicrafts",Tahoma,Arial,sans-serif!important;--sakura-heading-font:"The Year of Handicrafts",Tahoma,Arial,sans-serif!important}
+html,body,button,input,textarea,select,a,p,span,div,label,small,strong,b,li,h1,h2,h3,h4,h5,h6{font-family:var(--sakura-font)!important}
+h1,h2,h3,h4,h5,h6,.section-head h2,.shop-head h2,.shop-info h3,.reviews-head h2,.review-card h3,.custom-unified h1,.custom-unified h2,.how-head h2,.how-card h3{font-family:var(--sakura-heading-font)!important}
+button,input,textarea,select{font:inherit!important}
 
-.icon-svg{width:56px;height:56px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(145deg,#fff,#f9e9ed);border:1px solid var(--line);box-shadow:0 10px 28px rgba(169,96,113,.09);margin-bottom:22px}
-.icon-svg svg{width:30px;height:30px;fill:none;stroke:var(--pink-dark);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.eyebrow .mini-svg{width:18px;height:18px;display:inline-flex}
-.eyebrow .mini-svg svg{width:18px;height:18px;fill:none;stroke:var(--pink-dark);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+</style>
 
-.visual-banner{position:relative;overflow:hidden;border-radius:30px;min-height:310px;margin:24px 0 34px;border:1px solid var(--line);box-shadow:var(--shadow);background:#f8e8ec}
-.visual-banner img{width:100%;height:100%;min-height:310px;position:absolute;inset:0;object-fit:cover}
-.visual-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,25,26,.72),rgba(28,25,26,.08))}
-.visual-copy{position:relative;z-index:2;color:#fff;padding:42px;max-width:570px}
-.visual-copy h2{margin:0 0 10px;color:#fff}.visual-copy p{margin:0;line-height:1.8;color:rgba(255,255,255,.88)}
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="canonical" href="https://ashraftefa97-beep.github.io/sakurablooom-nfc/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SakuraBlooom">
+  <meta property="og:title" content="SakuraBlooom | 3D Printing Studio">
+  <meta property="og:description" content="SakuraBlooom — متجر واستوديو طباعة ثلاثية الأبعاد للفيجرز، الميداليات، منتجات NFC والطلبات المخصصة.">
+  <meta property="og:url" content="https://ashraftefa97-beep.github.io/sakurablooom-nfc/">
+  <meta property="og:image" content="https://ashraftefa97-beep.github.io/sakurablooom-nfc/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SakuraBlooom | 3D Printing Studio">
+  <meta name="twitter:description" content="SakuraBlooom — متجر واستوديو طباعة ثلاثية الأبعاد للفيجرز، الميداليات، منتجات NFC والطلبات المخصصة.">
+  <meta name="twitter:image" content="https://ashraftefa97-beep.github.io/sakurablooom-nfc/assets/og-image.png">
+</head>
+<body>
+<!-- BILINGUAL-CONTENT -->
 
-/* SakuraBlooom polish */
-body{overflow-x:hidden}
-nav{box-shadow:0 8px 28px rgba(149,88,104,.05)}
-.brand span{letter-spacing:.1px}
-.branch,.product,.info,.hero-card,.visual-banner{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-.branch:hover,.product:hover{transform:translateY(-5px);border-color:#e7c4cc;box-shadow:0 22px 58px rgba(163,104,118,.14)}
-.product img{transition:transform .4s ease}.product:hover img{transform:scale(1.025)}
-.btn,.order,.cta,.social a{transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
-.btn:hover,.order:hover,.cta:hover,.social a:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(163,104,118,.13)}
-.category-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#846f75;font-size:12px;font-weight:600;margin:0 0 10px}
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:8px 0}
-@media(max-width:650px){
-  nav .nav{height:66px}
-  .brand img{width:43px;height:43px}.brand{font-size:18px}
-  .hero{padding:42px 0 26px;gap:24px}
-  h1{font-size:44px;line-height:1.05}
-  .lead{font-size:16px;line-height:1.75}
-  .hero-card{border-radius:25px;padding:10px}.hero-card img{border-radius:18px}
-  .visual-banner{min-height:240px;border-radius:24px}
-  .visual-banner img{min-height:240px}
-  .visual-copy{padding:26px}.visual-copy h2{font-size:28px}
-  .section{padding:50px 0}.branch{min-height:245px;padding:22px;border-radius:24px}
-  .branch h3{font-size:24px}.icon-svg{width:50px;height:50px;border-radius:16px}
-  .actions .btn{width:100%}
-}
+<div id="scrollProgress" aria-hidden="true"></div>
 
-/* Falling sakura petals */
-.sakura-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:55}
-.sakura-petal{position:absolute;top:-12vh;width:14px;height:10px;background:linear-gradient(145deg,#f8c6d0,#de9eaa);border-radius:75% 25% 70% 30%;opacity:.82;filter:drop-shadow(0 2px 2px rgba(185,109,125,.12));animation:sakuraFall linear infinite,sakuraSway ease-in-out infinite;transform-origin:center}
-.sakura-petal:after{content:"";position:absolute;width:7px;height:5px;left:3px;top:2px;background:rgba(255,255,255,.36);border-radius:70% 30% 70% 30%}
-@keyframes sakuraFall{to{transform:translate3d(var(--drift),112vh,0) rotate(760deg)}}
-@keyframes sakuraSway{0%,100%{margin-left:0}50%{margin-left:28px}}
-@media (prefers-reduced-motion:reduce){.sakura-layer{display:none}}
+<a class="floating-wa" id="floatingWhatsapp" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.7Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9.1 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5.9 1.2 1.7 2.1 2.2.2.1.4.1.6-.1l.8-.9c.2-.2.4-.3.7-.1l1.8.9c.3.1.4.3.4.5 0 .4-.2 1.2-.8 1.6-.5.4-1.2.7-2.1.5-1.2-.2-2.7-.9-4.2-2.4-1.3-1.3-2.2-2.8-2.4-4-.1-.8.2-1.4.5-1.9Z" fill="currentColor"/></svg>
+  <span class="floating-wa-label" data-ar="تواصل واتساب" data-en="WhatsApp">تواصل واتساب</span>
+</a>
 
-/* Payments */
-.payments-wrap{background:linear-gradient(135deg,#fff,#fff6f8);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:0 16px 50px rgba(163,104,118,.08)}
-.payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
-.payment-card{min-height:108px;background:#fff;border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:.2s}
-.payment-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(163,104,118,.1)}
-.payment-logo{font-size:24px;font-weight:900;letter-spacing:-.3px;color:#473f42}
-.payment-logo.mada{color:#16736f}.payment-logo.apple{color:#111}.payment-logo.visa{color:#173a91}.payment-logo.master{color:#8f5360}
-.payment-card small{color:var(--muted);font-size:12px}
-.payment-note{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.8}
-@media(max-width:700px){.payment-grid{grid-template-columns:1fr 1fr}.payments-wrap{padding:22px}}
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
 
-</style></head><body>
-<div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
-<nav><div class="container nav">
-<a class="brand" href="./"><img src="assets/logo.png" alt="SakuraBlooom"><span>SakuraBlooom</span></a>
-<div class="links"><a href="#about">عنّا</a><a href="#branches">الأقسام</a><a href="#payments">الدفع</a><a href="#contact">تواصل</a><a class="cta" href="#branches">استكشف المتجر</a></div>
-</div></nav>
-<main>
-<section class="container hero">
-<div>
-<span class="eyebrow"><span class="mini-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5 12 2l8 3.5v9L12 19l-8-4.5v-9Z"/><path d="M12 19v3M8.5 22h7M4 5.5l8 4.5 8-4.5M12 10v9"/></svg></span>3D Printing Studio</span>
-<h1>نحوّل الأفكار إلى <span>قطع حقيقية.</span></h1>
-<p class="lead">SakuraBlooom استوديو متخصص في الطباعة ثلاثية الأبعاد. بنصمم ونطبع فيجرز، ميداليات، قطع NFC وهدايا مخصصة بهوية مميزة وجودة مناسبة للعرض والاستخدام اليومي.</p>
-<div class="actions"><a class="btn primary" href="#branches">استكشف الأقسام</a><a class="btn mint" href="https://www.instagram.com/sakurabloom_3d?stkn=bTlyeGVhMmx5ampn&utm_source=qr" target="_blank">تابعنا على Instagram</a></div>
-</div>
-<div class="hero-card"><img src="assets/luffy-keychain.jpg" alt="SakuraBlooom 3D print"></div>
-</section>
-
-<section class="container">
-<div class="visual-banner"><img src="assets/home-hero.jpg" alt="SakuraBlooom 3D printing">
-<div class="visual-copy"><h2>تصميمات تتحول لقطع حقيقية</h2><p>فيجرز، ميداليات، NFC وطلبات مخصصة بهوية SakuraBlooom.</p></div></div>
-</section>
-<section class="container section" id="about">
-<div class="head"><div><div class="kicker">About SakuraBlooom</div><h2>مش مجرد طباعة 3D</h2></div><p class="intro">كل قطعة بنشتغل عليها كمنتج كامل: اختيار تصميم، ألوان، تشطيب، وتجربة استخدام. ولو القطعة فيها NFC نقدر نربطها بصفحة أو محتوى رقمي مخصص.</p></div>
-<div class="about">
-<div class="info"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16l8.5-8.5 2 2L9 18H7v-2ZM14.5 8.5l2 2M6 5h5"/></svg></div><strong>تصميمات مميزة</strong><p>قطع أنمي، هدايا، أسماء، لوجوهات وأفكار خاصة.</p></div>
-<div class="info"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 0-4H12a1.5 1.5 0 0 1 0-3h2.5A6.5 6.5 0 0 0 21 7.5 4.5 4.5 0 0 0 16.5 3H12Z"/><circle cx="7.5" cy="9" r="1"/><circle cx="10" cy="6.5" r="1"/><circle cx="7" cy="13" r="1"/></svg></div><strong>طباعة متعددة الألوان</strong><p>تنسيق ألوان مناسب للقطعة مع مراجعة قبل التسليم.</p></div>
-<div class="info"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3M10 18h4"/></svg></div><strong>NFC Experience</strong><p>ربط القطعة بصفحة أو فيديو أو رسالة رقمية خاصة.</p></div>
-</div>
-</section>
-
-<section class="container">
-<div class="section-divider"></div>
-<div class="about" style="padding:30px 0 10px">
-  <div class="info"><div class="category-pill">Made to order</div><strong>تنفيذ حسب الطلب</strong><p>اختار الفكرة والمقاس والألوان، ونجهز القطعة بالشكل المناسب.</p></div>
-  <div class="info"><div class="category-pill">Multi-color</div><strong>تفاصيل وألوان متعددة</strong><p>طباعة مناسبة للميداليات والديكور والقطع المخصصة.</p></div>
-  <div class="info"><div class="category-pill">NFC ready</div><strong>تجربة رقمية اختيارية</strong><p>نقدر نربط بعض القطع بصفحة أو حساب أو محتوى رقمي.</p></div>
-</div>
-</section>
-<section class="container section" id="branches">
-<div class="head"><div><div class="kicker">Explore</div><h2>اختار القسم</h2></div><p class="intro">المبيعات متقسمة لفروع منفصلة علشان الوصول للمنتجات يكون أسرع وأوضح.</p></div>
-<div class="branch-grid">
-<a class="branch" href="figures/"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M8.5 11h7l2 3.5V20h-11v-5.5L8.5 11ZM9 20v2M15 20v2M7.5 14H5M16.5 14H19"/></svg></div><h3>الفيجرز</h3><p>فيجرز صغيرة ومتوسطة وقطع ديكور للشخصيات والتصميمات المخصصة.</p><span class="go">ادخل قسم الفيجرز ←</span></a>
-<a class="branch" href="keychains/"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="4"/><path d="M11 11l3.5 3.5M14.5 14.5l2-2 4 4-4 4-4-4 2-2ZM8 6v4M6 8h4"/></svg></div><h3>الميداليات</h3><p>ميداليات أنمي، أسماء، لوجوهات وتصميمات متعددة الألوان.</p><span class="go">ادخل قسم الميداليات ←</span></a>
-<a class="branch" href="nfc/"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7M9 6a8.5 8.5 0 0 1 0 12M13 4a11 11 0 0 1 0 16"/><circle cx="4" cy="12" r="1.5"/></svg></div><h3>منتجات NFC</h3><p>ميداليات وقطع NFC كثيرة: شخصيات، أسماء، لوجوهات وهدايا مخصصة، وكل قطعة ممكن تفتح تجربة رقمية مختلفة.</p><span class="go">ادخل قسم NFC ←</span></a>
-<a class="branch" href="custom/"><div class="icon-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"/><path d="m18.5 14 .9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6ZM5 14.5l.6 1.8 1.9.7-1.9.6L5 19.5l-.6-1.9-1.9-.6 1.9-.7L5 14.5Z"/></svg></div><h3>طلبات مخصصة</h3><p>عندك فكرة خاصة؟ نراجعها ونجهزها للطباعة حسب المقاس والألوان.</p><span class="go">ابدأ طلب مخصص ←</span></a>
-</div>
-</section>
-
-<section class="container section" id="payments">
-  <div class="head"><div><div class="kicker">Payments</div><h2>طرق الدفع</h2></div><p class="intro">اختار وسيلة الدفع المناسبة عند تأكيد الطلب. الطلبات المخصصة يتم تأكيد قيمتها أولًا قبل الدفع.</p></div>
-  <div class="payments-wrap">
-    <div class="payment-grid">
-      <div class="payment-card"><div class="payment-logo mada">mada</div><small>بطاقات مدى</small></div>
-      <div class="payment-card"><div class="payment-logo apple">Apple Pay</div><small>دفع سريع وآمن</small></div>
-      <div class="payment-card"><div class="payment-logo visa">VISA</div><small>بطاقات Visa</small></div>
-      <div class="payment-card"><div class="payment-logo master">Mastercard</div><small>بطاقات Mastercard</small></div>
+<div class="quick-modal" id="quickModal" aria-hidden="true">
+  <div class="quick-dialog" role="dialog" aria-modal="true" aria-labelledby="quickTitle">
+    <button class="quick-close" id="quickClose" type="button" aria-label="Close">×</button>
+    <div class="quick-grid">
+      <div class="quick-media" id="quickMedia"></div>
+      <div class="quick-copy">
+        <span class="eyebrow" id="quickTag">PRODUCT</span>
+        <h3 id="quickTitle">Product</h3>
+        <p id="quickDesc"></p>
+        <div class="quick-price" id="quickPrice"></div>
+        <div class="quick-actions">
+          <a class="quick-order" id="quickOrder" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="quick-secondary" id="quickDismiss" type="button">Close</button>
+        </div>
+      </div>
     </div>
-    <p class="payment-note">لإتمام الطلب الآن تواصل معنا على WhatsApp وسيتم تأكيد المنتج والسعر وطريقة الدفع المناسبة.</p>
-    <div class="actions"><a class="btn primary" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank">تأكيد الطلب والدفع</a></div>
+  </div>
+</div>
+
+  <div class="sakura-layer" id="sakuraLayer" aria-hidden="true"></div>
+
+  <nav>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="SakuraBloom">
+        <img class="brand-symbol" src="data:image/png;base64,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" alt="">
+        <img class="brand-wordmark" src="data:image/png;base64,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" alt="SakuraBloom">
+    </a>
+      <div class="links">
+        <a href="#about">About</a><a href="#branches">Collections</a><a class="cta" href="#branches">Explore</a>
+      <button class="lang-toggle" type="button" onclick="toggleSakuraLang()" aria-label="Switch language"><span class="active">AR</span>&nbsp;/&nbsp;<span>EN</span></button></div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="mobile-panel" id="mobilePanel"><a href="figures/">Figures</a><a href="keychains/">Keychains</a><a href="nfc/">NFC</a><a href="custom/">Custom</a><a href="#top">Home</a><button type="button" onclick="toggleSakuraLang()">AR / EN</button></div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <span class="eyebrow">3D Printing Studio</span>
+        <h1>نحوّل فكرتك إلى <span>قطعة حقيقية.</span></h1>
+        <p class="lead">SakuraBlooom استوديو للطباعة ثلاثية الأبعاد، نصنع فيجرز وميداليات ومنتجات NFC وطلبات مخصصة بتصميم نظيف وهوية مميزة.</p>
+        <div class="actions">
+          <a class="btn primary" href="#branches">استكشف الأقسام</a>
+          <a class="btn mint" href="https://www.instagram.com/sakurabloom_3d" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="hero-card reveal tilt-card luffy-hero"><img src="assets/home-hero.webp" alt="مجسم لوفي وسط أزهار الساكورا" loading="eager" fetchpriority="high" decoding="async"></div>
+    </section>
+
+    <section class="container section" id="about">
+      <div class="head"><div><div class="kicker">About SakuraBlooom</div><h2>مش مجرد طباعة 3D</h2></div><p class="intro">بنهتم بالتصميم والألوان والتشطيب وتفاصيل القطعة علشان المنتج النهائي يبقى مناسب للعرض أو الاستخدام أو الهدية.</p></div>
+      <div class="about">
+        <div class="info"><b>تصميمات مميزة</b><p>أنمي، أسماء، شعارات، هدايا وأفكار مخصصة.</p></div>
+        <div class="info"><b>ألوان وتشطيب</b><p>تنسيق ألوان ومراجعة للتفاصيل قبل التسليم.</p></div>
+        <div class="info"><b>NFC ذكي</b><p>منتجات NFC تقدر تربطها بصفحة أو رابط أو محتوى رقمي.</p></div>
+      </div>
+    </section>
+
+    <section class="container section" id="branches">
+      <div class="head"><div><div class="kicker">Collections</div><h2>أقسام SakuraBlooom</h2></div><p class="intro">اختار نوع القطعة، وبعدها تواصل معنا بالتفاصيل والتصميم اللي في بالك.</p></div>
+      <div class="branch-grid">
+        <a class="branch reveal tilt-card" id="figures" href="figures/" target="_blank"><span class="branch-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M21 51h22" stroke="#76B9B6" stroke-width="3.2" stroke-linecap="round"/><path d="M25 46c1-7 3-10 7-12 4 2 6 5 7 12" fill="#F8DDE3" stroke="#DDA0AA" stroke-width="2.6" stroke-linejoin="round"/><circle cx="32" cy="22" r="9" fill="#FFF7F9" stroke="#DDA0AA" stroke-width="2.6"/><path d="M24 21c2-8 14-10 17-1-4-2-8-4-17 1Z" fill="#DDA0AA"/><path d="M28 25c1.2 1 2.5 1.5 4 1.5s2.8-.5 4-1.5" stroke="#9B6879" stroke-width="2" stroke-linecap="round"/><path d="M20 52h24v4H20z" fill="#E8F5F3"/></svg></span><h3>Figures</h3><p>مجسمات وقطع عرض بتفاصيل مميزة لمحبي الأنمي والجيمينج.</p><span class="go">استكشف القسم</span></a>
+        <a class="branch reveal tilt-card" id="keychains" href="keychains/" target="_blank"><span class="branch-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="24" cy="20" r="11" stroke="#DDA0AA" stroke-width="4"/><path d="M31 27l7 7" stroke="#9B6879" stroke-width="3" stroke-linecap="round"/><path d="M37 33c4-3 8-2 10 2 2 4 1 8-3 10" stroke="#76B9B6" stroke-width="3" stroke-linecap="round"/><path d="M44 41c-2-5-8-7-12-3-4 4-2 10 3 12 5 2 10-1 11-6" fill="#F8DDE3" stroke="#DDA0AA" stroke-width="2.6"/></svg></span><h3>Keychains</h3><p>ميداليات خفيفة ومميزة بأسماء وشخصيات وتصميمات متنوعة.</p><span class="go">استكشف القسم</span></a>
+        <a class="branch reveal tilt-card" id="nfc" href="nfc/" target="_blank"><span class="branch-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><rect x="13" y="11" width="25" height="42" rx="6" fill="#FFF7F9" stroke="#76B9B6" stroke-width="3"/><path d="M21 16h9" stroke="#DDA0AA" stroke-width="2.4" stroke-linecap="round"/><circle cx="25.5" cy="47" r="2" fill="#DDA0AA"/><path d="M43 24c5 4 5 12 0 16M48 19c8 7 8 19 0 26" stroke="#DDA0AA" stroke-width="3" stroke-linecap="round"/><circle cx="29" cy="37" r="2.8" fill="#76B9B6"/></svg></span><h3>NFC Products</h3><p>منتجات ذكية تربط العالم الحقيقي بالمحتوى الرقمي بلمسة واحدة.</p><span class="go">استكشف القسم</span></a>
+        <a class="branch reveal tilt-card" id="custom" href="custom/" target="_blank"><span class="branch-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><rect x="14" y="17" width="28" height="27" rx="4" fill="#FFF7F9" stroke="#76B9B6" stroke-width="3"/><path d="M20 23h16M20 38h16" stroke="#DDA0AA" stroke-width="2.6" stroke-linecap="round"/><path d="M42 15l8 8-16 16-9 2 2-9 15-17Z" fill="#E8F5F3" stroke="#9B6879" stroke-width="2.5" stroke-linejoin="round"/><path d="M39 18l8 8" stroke="#DDA0AA" stroke-width="2.5"/><path d="M49 39l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4Z" fill="#DDA0AA"/></svg></span><h3>Custom Orders</h3><p>عندك فكرة خاصة؟ ابعتها لنا ونحوّلها لقطعة مطبوعة تناسبك.</p><span class="go">استكشف القسم</span></a>
+      </div>
+    </section>
+
+    
+  </main>
+
+  
+<section class="container how-section reveal" id="how">
+  <div class="how-head">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2>من الفكرة لقطعة حقيقية</h2>
+    <p>ثلاث خطوات بسيطة من أول فكرتك لحد ما القطعة تبقى جاهزة.</p>
+  </div>
+  <div class="how-grid">
+    <article class="how-card tilt-card"><span class="how-num">01</span><h3>اختار فكرتك</h3><p>اختار من الأقسام أو ابعت صورة، شخصية، اسم أو فكرة خاصة.</p></article>
+    <article class="how-card tilt-card"><span class="how-num">02</span><h3>نجهز التصميم</h3><p>نراجع المقاس والألوان والتفاصيل ونأكد الشكل قبل التنفيذ.</p></article>
+    <article class="how-card tilt-card"><span class="how-num">03</span><h3>نطبع ونجهز</h3><p>ننفذ القطعة بعناية ونراجع التشطيب قبل الاستلام أو التوصيل.</p></article>
   </div>
 </section>
 
-<section class="container section" id="contact">
-<div class="head"><div><div class="kicker">Contact</div><h2>تواصل مع SakuraBlooom</h2></div><p class="intro">للطلبات والاستفسارات تقدر تتواصل معانا مباشرة على WhatsApp أو Instagram.</p></div>
-<div class="social"><a class="wa" href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank">WhatsApp</a><a class="ig" href="https://www.instagram.com/sakurabloom_3d?stkn=bTlyeGVhMmx5ampn&utm_source=qr" target="_blank">Instagram</a></div>
+
+
+
+<section class="container reviews-section reveal" id="reviews">
+  <div class="reviews-head">
+    <div>
+      <span class="eyebrow" data-ar="آراء العملاء" data-en="CUSTOMER REVIEWS">آراء العملاء</span>
+      <h2 data-ar="آراء العملاء" data-en="Customer Reviews">آراء العملاء</h2>
+    </div>
+    <p data-ar="تجارب حقيقية من عملاء SakuraBlooom." data-en="Real experiences from SakuraBlooom customers.">تجارب حقيقية من عملاء SakuraBlooom.</p>
+  </div>
+  <div class="reviews-empty">
+    <div class="reviews-empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none"><path d="M9 11h30v21H23l-9 6v-6H9V11Z" stroke="#76B9B6" stroke-width="3" stroke-linejoin="round"/><path d="M16 20h16M16 26h10" stroke="#DDA0AA" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <h3 data-ar="لا توجد آراء منشورة بعد" data-en="No reviews yet">لا توجد آراء منشورة بعد</h3>
+      <p data-ar="كن أول من يشارك تجربته معنا بعد استلام طلبه." data-en="Be the first to share your experience after receiving your order.">كن أول من يشارك تجربته معنا بعد استلام طلبه.</p>
+    </div>
+    <a class="review-share" id="reviewShare" target="_blank" rel="noopener" href="https://wa.me/message/7FZJ5MDC6WNLI1" data-ar="شارك تجربتك" data-en="Share Your Experience">شارك تجربتك</a>
+  </div>
 </section>
-</main>
+
+<section class="contact-bottom" id="contact">
+  <div class="container contact-bottom-inner">
+    <div>
+      <span class="contact-kicker">CONTACT</span>
+      <h2 data-ar="خلّينا نصنع حاجة مميزة." data-en="Let’s create something special.">خلّينا نصنع حاجة مميزة.</h2>
+      <p data-ar="للطلبات والاستفسارات تواصل معنا مباشرة عبر WhatsApp أو Instagram." data-en="For orders and questions, contact us directly on WhatsApp or Instagram.">للطلبات والاستفسارات تواصل معنا مباشرة عبر WhatsApp أو Instagram.</p>
+    </div>
+    <div class="contact-actions">
+      <a href="https://wa.me/message/7FZJ5MDC6WNLI1" target="_blank">WhatsApp</a>
+      <a href="https://www.instagram.com/sakurabloom_3d" target="_blank">Instagram</a>
+    </div>
+  </div>
+</section>
+
 <footer>© 2026 SakuraBlooom • 3D Printed with care</footer>
+
+  <script>
+    (() => {
+      const layer = document.getElementById('sakuraLayer');
+      if (!layer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const count = window.innerWidth < 700 ? 7 : 11;
+      for (let i = 0; i < count; i++) {
+        const petal = document.createElement('span');
+        petal.className = 'sakura-petal';
+        petal.style.left = (Math.random() * 100) + 'vw';
+        const size = 6 + Math.random() * 5;
+        petal.style.width = size + 'px';
+        petal.style.height = (size * .72) + 'px';
+        petal.style.opacity = (0.14 + Math.random() * 0.20).toFixed(2);
+        petal.style.setProperty('--drift', ((Math.random() * 80) - 40).toFixed(0) + 'px');
+        petal.style.animationDuration = (17 + Math.random() * 13).toFixed(1) + 's';
+        petal.style.animationDelay = (-Math.random() * 28).toFixed(1) + 's';
+        layer.appendChild(petal);
+      }
+    })();
+  </script>
 
 <script>
 (function(){
-  const layer=document.getElementById('sakuraLayer');
-  if(!layer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const count=22;
-  for(let i=0;i<count;i++){
-    const petal=document.createElement('span');
-    petal.className='sakura-petal';
-    petal.style.left=(Math.random()*100)+'vw';
-    petal.style.width=(9+Math.random()*10)+'px';
-    petal.style.height=(7+Math.random()*7)+'px';
-    petal.style.opacity=(0.35+Math.random()*0.5).toFixed(2);
-    petal.style.setProperty('--drift',((-80+Math.random()*160).toFixed(0))+'px');
-    petal.style.animationDuration=(8+Math.random()*9).toFixed(2)+'s,'+(2.6+Math.random()*2.5).toFixed(2)+'s';
-    petal.style.animationDelay=(-Math.random()*14).toFixed(2)+'s,'+(-Math.random()*4).toFixed(2)+'s';
-    layer.appendChild(petal);
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const els=document.querySelectorAll('.reveal');
+ if(reduce){els.forEach(e=>e.classList.add('is-visible'))}
+ else if('IntersectionObserver'in window){
+   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('is-visible');io.unobserve(x.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+   els.forEach(e=>io.observe(e));
+ }else{els.forEach(e=>e.classList.add('is-visible'))}
+ if(!reduce&&matchMedia('(hover:hover)').matches){
+   document.querySelectorAll('.tilt-card').forEach(card=>{
+     const max=5.5;
+     card.addEventListener('mousemove',e=>{
+       const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+       card.style.transform=`perspective(900px) rotateX(${(0.5-y)*max}deg) rotateY(${(x-0.5)*max}deg) translateY(-4px)`;
+     });
+     card.addEventListener('mouseleave',()=>card.style.transform='');
+   });
+ }
+})();
+</script>
+
+
+<script>
+(function(){
+  const translations = {"نحوّل فكرتك إلى": "We turn your idea into", "قطعة حقيقية.": "something real.", "SakuraBlooom استوديو للطباعة ثلاثية الأبعاد، نصنع فيجرز وميداليات ومنتجات NFC وطلبات مخصصة بتصميم نظيف وهوية مميزة.": "SakuraBlooom is a 3D printing studio creating figures, keychains, NFC products and custom pieces with a clean, distinctive identity.", "استكشف الأقسام": "Explore Collections", "مش مجرد طباعة 3D": "More than 3D printing", "بنهتم بالتصميم والألوان والتشطيب وتفاصيل القطعة علشان المنتج النهائي يبقى مناسب للعرض أو الاستخدام أو الهدية.": "We care about design, colors, finishing and details so every piece works beautifully for display, everyday use or gifting.", "تصميمات مميزة": "Distinctive Designs", "أنمي، أسماء، شعارات، هدايا وأفكار مخصصة.": "Anime, names, logos, gifts and custom ideas.", "ألوان وتشطيب": "Colors & Finish", "تنسيق ألوان ومراجعة للتفاصيل قبل التسليم.": "Color coordination and detail checks before delivery.", "NFC ذكي": "Smart NFC", "منتجات NFC تقدر تربطها بصفحة أو رابط أو محتوى رقمي.": "NFC products that connect to a page, link or digital content.", "أقسام SakuraBlooom": "SakuraBlooom Collections", "اختار نوع القطعة، وبعدها تواصل معنا بالتفاصيل والتصميم اللي في بالك.": "Choose a category, then send us the details and design you have in mind.", "مجسمات وقطع عرض بتفاصيل مميزة لمحبي الأنمي والجيمينج.": "Figures and display pieces for anime and gaming fans.", "ميداليات خفيفة ومميزة بأسماء وشخصيات وتصميمات متنوعة.": "Lightweight keychains with names, characters and custom designs.", "منتجات ذكية تربط العالم الحقيقي بالمحتوى الرقمي بلمسة واحدة.": "Smart products that connect the physical world to digital content with one tap.", "عندك فكرة خاصة؟ ابعتها لنا ونحوّلها لقطعة مطبوعة تناسبك.": "Have a special idea? Send it to us and we’ll turn it into a printed piece made for you.", "استكشف القسم": "Explore Section", "من الفكرة لقطعة حقيقية": "From idea to a real piece", "ثلاث خطوات بسيطة من أول فكرتك لحد ما القطعة تبقى جاهزة.": "Three simple steps from your idea to a finished piece.", "اختار فكرتك": "Choose Your Idea", "اختار من الأقسام أو ابعت صورة، شخصية، اسم أو فكرة خاصة.": "Choose a category or send a photo, character, name or custom idea.", "نجهز التصميم": "We Prepare the Design", "نراجع المقاس والألوان والتفاصيل ونأكد الشكل قبل التنفيذ.": "We review size, colors and details, then confirm the design before production.", "نطبع ونجهز": "We Print & Finish", "ننفذ القطعة بعناية ونراجع التشطيب قبل الاستلام أو التوصيل.": "We produce the piece carefully and check the finish before pickup or delivery.", "للطلبات والاستفسارات تواصل معنا مباشرة عبر WhatsApp أو Instagram.": "For orders and questions, contact us directly on WhatsApp or Instagram.", "الرئيسية": "Home", "اختيارات القسم": "Explore the Category", "استعرض الأنواع المتاحة، وبعد ما تختار ابعتلنا فكرتك أو الصورة المرجعية ونأكد لك التفاصيل والسعر.": "Browse the available types, then send us your idea or reference image and we’ll confirm the details and price.", "عرض المنتجات": "View Products", "قسم البيع": "Shop", "كل قسم من الثلاثة فوق بيوصلك مباشرة للمنتجات الخاصة بيه.": "Each category above takes you directly to its matching products.", "اسم المنتج": "Product Name", "مكان لوصف المنتج والمقاس والخامة.": "Space for the product description, size and material.", "السعر لاحقًا": "Price coming soon", "جاهز للإضافة": "Ready to add", "مقاسات متعددة": "Multiple Sizes", "يتم تحديد المقاس المناسب حسب التصميم.": "The right size is selected based on the design.", "طلب مخصص": "Custom Order", "أرسل المرجع ونراجع التفاصيل قبل التنفيذ.": "Send your reference and we’ll review the details before production.", "مجسمات": "Figures", "قسم مخصص لعرض وطلب مجسمات الأنمي والألعاب والشخصيات المفضلة، مع إمكانية تنفيذ تصميمات مخصصة حسب الفكرة.": "A dedicated space for anime, gaming and character figures, with custom designs available based on your idea.", "مجسمات أنمي": "Anime Figures", "مجسمات مستوحاة من شخصيات الأنمي المفضلة لديك بأحجام وتشطيبات مختلفة.": "Figures inspired by your favorite anime characters in different sizes and finishes.", "مجسمات ألعاب": "Gaming Figures", "شخصيات ومجسمات من عالم الألعاب لديكور المكتب أو ركن الـGaming.": "Gaming characters and figures for your desk or gaming setup.", "مجسم حسب طلبك": "Custom Figure", "عندك صورة أو فكرة معينة؟ نراجع إمكانية التنفيذ ونجهزها للطباعة حسب طلبك.": "Have a specific image or idea? We’ll review it and prepare it for printing.", "مجسمات مستوحاة من شخصيات الأنمي.": "Figures inspired by anime characters.", "مجسمات مناسبة لعشاق الألعاب والـSetup.": "Figures made for gaming fans and setups.", "تنفيذ مجسم مخصص حسب الفكرة أو المرجع.": "A custom figure based on your idea or reference.", "اختيارات مختلفة حسب الموديل والخامة.": "Different options depending on the model and material.", "ميداليات": "Keychains", "قسم للميداليات المطبوعة ثلاثية الأبعاد: أسماء، شخصيات، شعارات وأفكار مخصصة تناسب الهدايا والاستخدام اليومي.": "3D-printed keychains with names, characters, logos and custom ideas for gifts and everyday use.", "ميداليات أسماء": "Name Keychains", "اسمك أو اسم شخص مميز بتصميم لطيف ومناسب للألوان التي تختارها.": "Your name or someone special’s name in a design that matches your chosen colors.", "ميداليات شخصيات": "Character Keychains", "شخصيات أنمي وألعاب بتصميمات خفيفة ومناسبة للمفاتيح والشنط.": "Lightweight anime and gaming character designs for keys and bags.", "ميدالية بتصميمك": "Custom Keychain", "شعار، رمز أو فكرة خاصة نحولها لتصميم مناسب للطباعة.": "A logo, symbol or custom idea turned into a print-ready design.", "أسماء وتصميمات شخصية.": "Names and personal designs.", "شخصيات أنمي وألعاب للمفاتيح والشنط.": "Anime and gaming characters for keys and bags.", "شعار أو فكرة خاصة حسب الطلب.": "A logo or custom idea made to order.", "خفيفة وعملية": "Light & Practical", "مصممة للاستخدام اليومي بدون وزن مزعج.": "Designed for everyday use without unnecessary weight.", "ألوان متعددة": "Multiple Colors", "اختيار الألوان حسب التصميم المتاح.": "Color choices depend on the selected design.", "هدايا مخصصة": "Personalized Gifts", "مناسبة للأسماء والمناسبات والبراندات.": "Great for names, occasions and brands.", "منتجات NFC": "NFC Products", "منتجات ذكية تربط القطعة المطبوعة بالمحتوى الرقمي بلمسة واحدة: روابط، حسابات اجتماعية، قوائم أو صفحات مخصصة.": "Smart products that connect a printed piece to digital content with one tap: links, social profiles, menus or custom pages.", "بطاقات NFC": "NFC Cards", "بطاقات ذكية لمشاركة رابط أو بروفايل أو صفحة أعمال بلمسة واحدة.": "Smart cards for sharing a link, profile or business page with one tap.", "ميداليات NFC": "NFC Tags", "قطعة صغيرة ذكية تجمع بين التصميم المطبوع والوصول السريع للمحتوى.": "A compact smart piece combining printed design with quick digital access.", "ستاند NFC": "NFC Stand", "ستاند مكتبي أنيق مناسب للبراندات، المعارض أو نقاط التواصل.": "A clean desktop stand for brands, exhibitions or contact points.", "بطاقات ذكية للروابط والبروفايل.": "Smart cards for links and profiles.", "ميداليات ذكية بتصميم مخصص.": "Smart tags with a custom design.", "ستاندات مكتبية للبراندات والاستخدام التجاري.": "Desktop stands for brands and business use.", "رابط قابل للتخصيص": "Customizable Link", "يتم تجهيز الشريحة حسب الاستخدام المطلوب.": "The NFC chip is prepared for your intended use.", "تصميم وبراندنج": "Design & Branding", "نصمم شكل القطعة بما يناسب هويتك.": "We design the piece to match your identity.", "استخدامات متعددة": "Multiple Uses", "سوشيال، قوائم، بروفايل، روابط وأكثر.": "Social profiles, menus, portfolios, links and more.", "ابدأ طلبك المخصص": "Start Your Custom Order", "وابعت فكرتك وإحنا هنراجعها": "Send your idea and we’ll review it", "اكتب فكرتك والتفاصيل اللي في بالك، واختار نوع القطعة والمقاس والألوان.": "Tell us your idea and the details you have in mind, then choose the item type, size and colors.", "لما تضغط إرسال هنجهز لك رسالة WhatsApp بكل البيانات علشان تبعتها لنا مباشرة.": "When you press send, we’ll prepare a WhatsApp message with all your details.", "الاسم": "Name", "نوع القطعة": "Item Type", "مجسم مخصص": "Custom Figure", "ميدالية مخصصة": "Custom Keychain", "منتج NFC مخصص": "Custom NFC Product", "هدية شخصية": "Personalized Gift", "فكرة أخرى": "Other Idea", "المقاس التقريبي": "Approximate Size", "الألوان المطلوبة": "Preferred Colors", "اشرح فكرتك": "Describe Your Idea", "إرسال الفكرة على WhatsApp": "Send Idea on WhatsApp", "لن يتم إرسال أي شيء تلقائيًا؛ WhatsApp هيفتح بالرسالة جاهزة وإنت تضغط إرسال.": "Nothing is sent automatically; WhatsApp opens with the message ready for you to send."};
+  const placeholders = {"اسمك": "Your name", "مثال: 15 سم": "Example: 15 cm", "مثال: وردي + أبيض": "Example: pink + white", "اكتب الفكرة بالتفصيل، الشخصية أو الشكل المطلوب، وأي ملاحظات مهمة": "Describe the idea, character or shape you want, plus any important notes"};
+  const reverse = Object.fromEntries(Object.entries(translations).map(([a,e])=>[e,a]));
+  const reversePH = Object.fromEntries(Object.entries(placeholders).map(([a,e])=>[e,a]));
+
+  function swapText(lang){
+    document.querySelectorAll('[data-ar][data-en]').forEach(el=>{
+      el.textContent = lang==='en' ? el.dataset.en : el.dataset.ar;
+    });
+    const map = lang === 'en' ? translations : reverse;
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+      if(node.parentElement && node.parentElement.closest('nav, header, .nav, .links, .brand')) return;
+      const raw=node.nodeValue, t=raw.trim();
+      if(!t || !map[t]) return;
+      const lead=raw.match(/^\s*/)[0], tail=raw.match(/\s*$/)[0];
+      node.nodeValue=lead+map[t]+tail;
+    });
+
+    document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
+      const cur=el.getAttribute('placeholder');
+      const pmap=lang==='en'?placeholders:reversePH;
+      if(pmap[cur]) el.setAttribute('placeholder',pmap[cur]);
+    });
+
+    document.documentElement.lang=lang;
+    document.documentElement.dir=lang==='en'?'ltr':'rtl';
+    localStorage.setItem('sakuraLang',lang);
+
+    document.querySelectorAll('.lang-toggle').forEach(btn=>{
+      btn.innerHTML = lang==='en'
+        ? '<span>AR</span>&nbsp;/&nbsp;<span class="active">EN</span>'
+        : '<span class="active">AR</span>&nbsp;/&nbsp;<span>EN</span>';
+      btn.setAttribute('aria-label', lang==='en'?'Switch to Arabic':'Switch to English');
+    });
+  }
+
+  window.toggleSakuraLang=function(){
+    swapText(document.documentElement.lang==='en'?'ar':'en');
+  };
+
+  const saved=localStorage.getItem('sakuraLang')||'ar';
+  if(saved==='en') swapText('en');
+  else {
+    document.documentElement.lang='ar';
+    document.documentElement.dir='rtl';
+    document.querySelectorAll('.lang-toggle').forEach(btn=>btn.innerHTML='<span class="active">AR</span>&nbsp;/&nbsp;<span>EN</span>');
   }
 })();
 </script>
 
-</body></html>
+
+<script>
+(function(){
+  // Scroll progress + back to top
+  const progress=document.getElementById('scrollProgress');
+  const back=document.getElementById('backTop');
+  function onScroll(){
+    const max=document.documentElement.scrollHeight-innerHeight;
+    const pct=max>0?(scrollY/max)*100:0;
+    if(progress) progress.style.width=pct+'%';
+    if(back) back.classList.toggle('show',scrollY>520);
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  if(back) back.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+  // Active nav item
+  const path=location.pathname.toLowerCase();
+  document.querySelectorAll('.links a,.mobile-panel a').forEach(a=>{
+    const h=(a.getAttribute('href')||'').toLowerCase();
+    if(!h) return;
+    if(
+      (path.includes('/figures/') && h.includes('figures')) ||
+      (path.includes('/keychains/') && h.includes('keychains')) ||
+      (path.includes('/nfc/') && h.includes('/nfc')) ||
+      (path.includes('/custom/') && h.includes('custom')) ||
+      (!path.match(/\/(figures|keychains|nfc|custom)\//) && (h.endsWith('index.html') || h==='#top'))
+    ) a.classList.add('active-page');
+  });
+
+  // Mobile menu
+  const toggle=document.getElementById('menuToggle');
+  const panel=document.getElementById('mobilePanel');
+  if(toggle&&panel){
+    toggle.addEventListener('click',()=>{
+      const open=panel.classList.toggle('open');
+      toggle.classList.toggle('open',open);
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      panel.classList.remove('open'); toggle.classList.remove('open');
+    }));
+  }
+
+  // Smart WhatsApp order links + Quick View
+  const modal=document.getElementById('quickModal');
+  const closeBtn=document.getElementById('quickClose');
+  const dismiss=document.getElementById('quickDismiss');
+  const titleEl=document.getElementById('quickTitle');
+  const descEl=document.getElementById('quickDesc');
+  const priceEl=document.getElementById('quickPrice');
+  const mediaEl=document.getElementById('quickMedia');
+  const orderEl=document.getElementById('quickOrder');
+  const tagEl=document.getElementById('quickTag');
+
+  function buildWa(name,price){
+    const isEn=document.documentElement.lang==='en';
+    const msg=isEn
+      ? `Hello SakuraBlooom, I want to order: ${name}${price?` — ${price}`:''}`
+      : `مرحباً SakuraBlooom، أريد طلب: ${name}${price?` — ${price}`:''}`;
+    return 'https://wa.me/message/7FZJ5MDC6WNLI1?text='+encodeURIComponent(msg);
+  }
+
+  function readCard(card){
+    const title=card.querySelector('.shop-info h3')?.textContent.trim() || 'Product';
+    const desc=card.querySelector('.shop-info p')?.textContent.trim() || '';
+    const price=card.querySelector('.shop-price')?.textContent.trim() || '';
+    const img=card.querySelector('.shop-image img');
+    const slot=card.querySelector('.shop-image .slot')?.textContent.trim() || '';
+    return {title,desc,price,img:img?.getAttribute('src')||'',alt:img?.getAttribute('alt')||title,slot};
+  }
+
+  function openQuick(card){
+    if(!modal) return;
+    const d=readCard(card);
+    titleEl.textContent=d.title;
+    descEl.textContent=d.desc;
+    priceEl.textContent=d.price;
+    tagEl.textContent=document.documentElement.lang==='en'?'PRODUCT':'منتج';
+    orderEl.textContent=document.documentElement.lang==='en'?'Order on WhatsApp':'اطلب على WhatsApp';
+    dismiss.textContent=document.documentElement.lang==='en'?'Close':'إغلاق';
+    orderEl.href=buildWa(d.title,d.price);
+    mediaEl.innerHTML=d.img
+      ? `<img loading="lazy" decoding="async" src="${d.img}" alt="${d.alt.replace(/"/g,'&quot;')}">`
+      : `<div class="quick-placeholder">${d.slot||'✦'}</div>`;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeQuick(){
+    if(!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  document.querySelectorAll('.shop-card').forEach(card=>{
+    const btn=card.querySelector('.shop-order');
+    if(btn){
+      btn.addEventListener('click',e=>{
+        e.stopPropagation();
+        const d=readCard(card);
+        btn.href=buildWa(d.title,d.price);
+      });
+    }
+    card.addEventListener('click',e=>{
+      if(e.target.closest('a,button')) return;
+      openQuick(card);
+    });
+  });
+  closeBtn?.addEventListener('click',closeQuick);
+  dismiss?.addEventListener('click',closeQuick);
+  modal?.addEventListener('click',e=>{if(e.target===modal) closeQuick()});
+  addEventListener('keydown',e=>{if(e.key==='Escape') closeQuick()});
+})();
+</script>
+
+
+<script>
+(function(){
+  const reviewShare=document.getElementById('reviewShare');
+  if(reviewShare){
+    reviewShare.addEventListener('click',()=>{
+      const en=document.documentElement.lang==='en';
+      const msg=en?'Hello SakuraBlooom, I would like to share my review.':'مرحباً SakuraBlooom، حابب أشارك رأيي في طلبي.';
+      reviewShare.href='https://wa.me/message/7FZJ5MDC6WNLI1?text='+encodeURIComponent(msg);
+    });
+  }
+  const wa=document.getElementById('floatingWhatsapp');
+  if(wa){
+    wa.addEventListener('click',()=>{
+      const en=document.documentElement.lang==='en';
+      const msg=en?'Hello SakuraBlooom, I have a question.':'مرحباً SakuraBlooom، عندي استفسار.';
+      wa.href='https://wa.me/message/7FZJ5MDC6WNLI1?text='+encodeURIComponent(msg);
+    });
+  }
+  document.querySelectorAll('.shop-card img,.reviews-section img').forEach(img=>{
+    if(!img.hasAttribute('loading')) img.loading='lazy';
+    img.decoding='async';
+  });
+  document.querySelectorAll('.shop-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      setTimeout(()=>{
+        const tag=document.getElementById('quickTag');
+        if(tag){
+          const en=document.documentElement.lang==='en';
+          tag.textContent=en?(card.dataset.categoryEn||'PRODUCT'):(card.dataset.categoryAr||'منتج');
+        }
+      },0);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
